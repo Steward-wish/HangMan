@@ -17,13 +17,18 @@ public class HangmanBasic {
         ui.displayWelcome();
 
         // Main game loop
-        while (!game.isGameOver()) {
-            ui.displayGameState(game); // show current state
-            char guess = ui.getGuessFromUser(); // get user input
-            game.guessLetter(Character.toUpperCase(guess)); // process guess
+        boolean conditon = true;
+        while (conditon) {
+            if (game.isGameOver()) {
+                ;// show current state
+                conditon = false;
+            }// process guess
+            else{ui.displayGameState(game); // show current state
+                char guess = ui.getGuessFromUser(); // get user input
+                game.guessLetter(Character.toUpperCase(guess));
         }
-
-        // Display final result
+            // Display final result
         ui.displayResult(game);
     }
+}
 }

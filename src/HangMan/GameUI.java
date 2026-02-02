@@ -23,7 +23,7 @@ public class GameUI {
         String input = scanner.nextLine().toUpperCase();
 
         while (input.length() != 1 || !Character.isLetter(input.charAt(0))) {
-            System.out.print("Invalid input. Guess a letter: ");
+            System.out.print("In valid input. Guess a letter: ");
             input = scanner.nextLine().toUpperCase();
         }
         return input.charAt(0);
@@ -36,6 +36,7 @@ public class GameUI {
         } else {
             System.out.println("Sorry, you have LOST!");
             System.out.println("The word was: " + game.getHiddenWord());
+            drawHangman(game.getIncorrectGuesses());
         }
     }
 
