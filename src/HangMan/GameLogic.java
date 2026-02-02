@@ -1,4 +1,5 @@
 package HangMan;
+
 import java.util.ArrayList;
 
 //Handles the rules and state of the Hangman game.

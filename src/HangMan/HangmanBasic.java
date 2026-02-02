@@ -1,8 +1,8 @@
 package HangMan;
 
-/**
- * Main class to coordinate the Hangman game.
- */
+
+// Main class to coordinate the Hangman game.
+
 public class HangmanBasic {
     public static void main(String[] args) {
         // Load a random word

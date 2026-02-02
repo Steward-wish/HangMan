@@ -1,9 +1,9 @@
 package HangMan;
 import java.util.Random;
 
-/**
- * Loads words for Hangman game.
- */
+
+// Loads words for Hangman game.
+
 public class WordLoader {
     private static final String[] WORDS = {
             "HAIYAA", "JAVA", "WAHAHA", "WALLAWE", "HANGMAN"
