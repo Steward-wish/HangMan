@@ -1,34 +1,23 @@
 package HangMan;
 
-
-// Main class to coordinate the Hangman game.
-
+// Purpose: Main entry point. Coordinates Hangman game flow.
+// Connects to: WordLoader (word source), GameLogic (rules), GameUI (interaction).
 public class HangmanBasic {
     public static void main(String[] args) {
-        // Load a random word
-        WordLoader loader = new WordLoader();
+        WordLoader loader = new WordLoader(); // load random word
         String wordToGuess = loader.selectRandomWord();
 
-        // Initialize game logic and UI
-        GameLogic game = new GameLogic(wordToGuess);
-        GameUI ui = new GameUI();
+        GameLogic game = new GameLogic(wordToGuess); // rules engine
+        GameUI ui = new GameUI(); // user interface
 
-        // Display welcome message
-        ui.displayWelcome();
+        ui.displayWelcome(); // show welcome
 
-        // Main game loop
-        boolean conditon = true;
-        while (conditon) {
-            if (game.isGameOver()) {
-                ;// show current state
-                conditon = false;
-            }// process guess
-            else{ui.displayGameState(game); // show current state
-                char guess = ui.getGuessFromUser(); // get user input
-                game.guessLetter(Character.toUpperCase(guess));
+        // Purpose: Main game loop controlling play until game ends.
+        while (!game.isGameOver()) {
+            ui.displayGameState(game); // show current state
+            char guess = ui.getGuessFromUser(); // get user input
+            game.guessLetter(Character.toUpperCase(guess));
         }
-            // Display final result
-        ui.displayResult(game);
+        ui.displayResult(game); // show final result
     }
-}
 }

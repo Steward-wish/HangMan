@@ -7,10 +7,11 @@ public class GameUI {
 
     public void displayWelcome() {
         System.out.println("===== Welcome to Hangman game! =====");
-        System.out.println("------------------------------------");
     }
 
     public void displayGameState(GameLogic game) {
+        System.out.println();
+        System.out.println("------------------------------------");
         drawHangman(game.getIncorrectGuesses());
         System.out.println("Word: " + game.getDisplayWord());
         System.out.println("Incorrect Guesses: " + game.getIncorrectGuesses() + "/" + game.getMaxIncorrectGuesses());
@@ -22,6 +23,7 @@ public class GameUI {
         System.out.print("Guess a letter: ");
         String input = scanner.nextLine().toUpperCase();
 
+
         while (input.length() != 1 || !Character.isLetter(input.charAt(0))) {
             System.out.print("In valid input. Guess a letter: ");
             input = scanner.nextLine().toUpperCase();
@@ -30,11 +32,12 @@ public class GameUI {
     }
 
     public void displayResult(GameLogic game) {
+        System.out.println();
         System.out.println("===== Game Over! =====");
         if (game.isWon()) {
             System.out.println("Congratulations, you have WON!");
         } else {
-            System.out.println("Sorry, you have LOST!");
+            System.out.print("Sorry, you LOST!");
             System.out.println("The word was: " + game.getHiddenWord());
             drawHangman(game.getIncorrectGuesses());
         }
@@ -54,7 +57,7 @@ public class GameUI {
         String[] hangmanStages = {
                 "+---+\n|   |\n|\n|\n|\n|\n=======\n",
                 "+---+\n|   |\n|   O\n|\n|\n|\n=======\n",
-                "+---+\n|   |\n|   O\n|   |\n|\n|\n=======\n",
+                "+---+\n|   |\n|   O\n|  |\n|\n|\n=======\n",
                 "+---+\n|   |\n|   O\n|  /|\n|\n|\n=======\n",
                 "+---+\n|   |\n|   O\n|  /|\\\n|\n|\n=======\n",
                 "+---+\n|   |\n|   O\n|  /|\\\n|  /\n|\n=======\n",
